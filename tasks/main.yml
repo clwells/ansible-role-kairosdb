@@ -22,6 +22,14 @@
     src=/tmp/kairosdb-{{ kairosdb_version }}-1.rpm
     state=absent
 
+- name: Install KairosDB Config
+  template:
+    src=kairosdb.properties.j2
+    dest=/opt/kairosdb/conf
+    mode=0640
+    owner={{ kairosdb_user }}
+    group={{ kairosdb_group }}
+
 - name: Restart KairosDB
   command: /bin/true
   notify: restart kairosdb
