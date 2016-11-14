@@ -16,3 +16,12 @@
   yum:
     name=/tmp/kairosdb-{{ kairosdb_version }}-1.rpm
     state=present
+
+- name: Remove Install File
+  file:
+    src=/tmp/kairosdb-{{ kairosdb_version }}-1.rpm
+    state=absent
+
+- name: Restart KairosDB
+  command: /bin/true
+  notify: restart kairosdb
