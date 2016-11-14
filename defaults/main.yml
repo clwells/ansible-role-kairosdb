@@ -1,0 +1,7 @@
+---
+kairosdb_version: 1.1.2
+kairosdb_java_packages:
+  - java-1.8.0-openjdk-headless
+kairosdb_user: kairosdb
+kairosdb_group: kairosdb
+kairosdb_listen_address: 127.0.0.1

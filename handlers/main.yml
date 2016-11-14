@@ -1,0 +1,16 @@
+---
+
+- name: start kairosdb
+  service:
+    name=kairosdb
+    state=started
+
+- name: restart kairosdb
+  service:
+    name=kairosdb
+    state=restarted
+
+- name: stop kairosdb
+  service:
+    name=kairosdb
+    state=stopped
