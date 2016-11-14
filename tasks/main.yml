@@ -19,7 +19,7 @@
 
 - name: Remove Install File
   file:
-    src=/tmp/kairosdb-{{ kairosdb_version }}-1.rpm
+    path=/tmp/kairosdb-{{ kairosdb_version }}-1.rpm
     state=absent
 
 - name: Install KairosDB Config
