@@ -1,0 +1,75 @@
+
+kairosdb.telnetserver.port=0
+
+kairosdb.service.http=org.kairosdb.core.http.WebServletModule
+kairosdb.service.reporter=org.kairosdb.core.reporting.MetricReportingModule
+
+kairosdb.datapoints.factory.long=org.kairosdb.core.datapoints.LongDataPointFactoryImpl
+kairosdb.datapoints.factory.double=org.kairosdb.core.datapoints.DoubleDataPointFactoryImpl
+kairosdb.datapoints.factory.string=org.kairosdb.core.datapoints.StringDataPointFactory
+
+kairosdb.reporter.schedule=0 */1 * * * ?
+
+kairosdb.jetty.port=0
+kairosdb.jetty.address={{ kairosdb_listen_address }}
+kairosdb.jetty.ssl.port=443
+kairosdb.jetty.ssl.protocols=TLSv1.2
+kairosdb.jetty.ssl.cipherSuites=TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA
+kairosdb.jetty.ssl.keystore.path=
+kairosdb.jetty.ssl.keystore.password=
+
+#kairosdb.jetty.threads.queue_size=6000
+#kairosdb.jetty.threads.min=1000
+#kairosdb.jetty.threads.max=2500
+#kairosdb.jetty.threads.keep_alive_ms=10000
+
+kairosdb.datastore.cassandra.host_list={{ kairos_cassandra_host_list }}
+kairosdb.datastore.cassandra.keyspace=kairosdb
+kairosdb.datastore.cassandra.replication_factor=1
+kairosdb.datastore.cassandra.write_delay=1000
+kairosdb.datastore.cassandra.write_buffer_max_size=500000
+kairosdb.datastore.cassandra.single_row_read_size=10240
+kairosdb.datastore.cassandra.multi_row_size=1000
+kairosdb.datastore.cassandra.multi_row_read_size=1024
+kairosdb.datastore.cassandra.row_key_cache_size=10240
+kairosdb.datastore.cassandra.string_cache_size=5000
+kairosdb.datastore.cassandra.increase_buffer_size_schedule=0 */5 * * * ?
+kairosdb.datastore.cassandra.read_consistency_level=ONE
+kairosdb.datastore.cassandra.write_consistency_level=QUORUM
+
+#kairosdb.datastore.remote.data_dir=.
+#kairosdb.datastore.remote.remote_url=http://10.92.1.41:8080
+#kairosdb.datastore.remote.schedule=0 */30 * * * ?
+#kairosdb.datastore.remote.random_delay=0
+
+kairosdb.query_cache.keep_cache_files=false
+kairosdb.query_cache.cache_file_cleaner_schedule=0 0 12 ? * SUN *
+
+kairosdb.log.queries.enable=false
+kairosdb.log.queries.ttl=86400
+kairosdb.log.queries.greater_than=60
+
+kairosdb.datastore.cassandra.hector.useSocketKeepalive=true
+kairosdb.datastore.cassandra.hector.cassandraThriftSocketTimeout=10000
+#kairosdb.datastore.cassandra.hector.maxActive=50
+#kairosdb.datastore.cassandra.hector.maxWaitTimeWhenExhausted=-1
+#kairosdb.datastore.cassandra.hector.retryDownedHosts=true
+#kairosdb.datastore.cassandra.hector.retryDownedHostsDelayInSeconds=10
+#kairosdb.datastore.cassandra.hector.retryDownedHostsQueueSize=-1
+#kairosdb.datastore.cassandra.hector.autoDiscoverHosts=false
+#kairosdb.datastore.cassandra.hector.autoDiscoveryDelayInSeconds=30
+#kairosdb.datastore.cassandra.hector.autoDiscoveryDataCenters=
+#kairosdb.datastore.cassandra.hector.runAutoDiscoveryAtStartup=false
+#kairosdb.datastore.cassandra.hector.useHostTimeoutTracker=false
+#kairosdb.datastore.cassandra.hector.maxFrameSize=2147483647
+#kairosdb.datastore.cassandra.hector.loadBalancingPolicy=roundRobin | leastActive | dynamic
+#kairosdb.datastore.cassandra.hector.hostTimeoutCounter=10
+#kairosdb.datastore.cassandra.hector.hostTimeoutWindow=500
+#kairosdb.datastore.cassandra.hector.hostTimeoutSuspensionDurationInSeconds=10
+#kairosdb.datastore.cassandra.hector.hostTimeoutUnsuspendCheckDelay=10
+#kairosdb.datastore.cassandra.hector.maxConnectTimeMillis=-1
+#kairosdb.datastore.cassandra.hector.maxLastSuccessTimeMillis-1
+
+kairosdb.service.health=org.kairosdb.core.health.HealthCheckModule
+#kairosdb.service.rollups=org.kairosdb.rollup.RollUpModule
+kairosdb.health.healthyResponseCode=204
