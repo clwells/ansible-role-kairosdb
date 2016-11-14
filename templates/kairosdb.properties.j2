@@ -23,6 +23,7 @@ kairosdb.jetty.ssl.keystore.password=
 #kairosdb.jetty.threads.max=2500
 #kairosdb.jetty.threads.keep_alive_ms=10000
 
+kairosdb.service.datastore=org.kairosdb.datastore.cassandra.CassandraModule
 kairosdb.datastore.cassandra.host_list={{ kairos_cassandra_host_list }}
 kairosdb.datastore.cassandra.keyspace=kairosdb
 kairosdb.datastore.cassandra.replication_factor=1
