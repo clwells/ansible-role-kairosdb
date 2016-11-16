@@ -3,7 +3,13 @@
 kairosdb_version: 1.1.2
 kairosdb_java_packages:
   - java-1.8.0-openjdk-headless
-kairosdb_user: kairosdb
-kairosdb_group: kairosdb
+kairosdb_user: root
+kairosdb_group: root
 kairosdb_listen_address: "{{ ansible_eth1.ipv4.address | default(127.0.0.1) }}"
 kairosdb_interface: "{{ ansible_eth1.ipv4.device | default(eth0) }}"
+kairosdb_firewall_open_external_ports:
+  - 22
+  - 443
+kairosdb_firewall_open_internal_ports:
+  - 9160
+
