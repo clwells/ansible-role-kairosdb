@@ -16,7 +16,7 @@ kairosdb.jetty.address={{ kairosdb_listen_address }}
 kairosdb.jetty.ssl.port=443
 kairosdb.jetty.ssl.protocols=TLSv1.2
 kairosdb.jetty.ssl.cipherSuites=TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA
-kairosdb.jetty.ssl.keystore.path=/etc/keystore
+kairosdb.jetty.ssl.keystore.path=/etc/keystore/jetty.pkcs12
 kairosdb.jetty.ssl.keystore.password={{ kairosdb_pkcs12_password }}
 
 #kairosdb.jetty.threads.queue_size=6000
