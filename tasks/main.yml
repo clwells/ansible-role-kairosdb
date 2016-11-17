@@ -38,19 +38,39 @@
     owner={{ kairosdb_user }}
     group={{ kairosdb_group }}
 
+- name: Create Keystore Directory
+  file:
+    path=/etc/keystore
+    state=directory
+    mode=0710
+    owner={{ kairosdb_user }}
+    group={{ kairosdb_group }}
+
 - name: Install SSL Key
   copy:
     content={{ kairosdb_ssl_key }}
-    dest=/opt/kairosdb/conf/ssl.key
-    mode=0640
+    dest=/etc/keystore/jetty.key
+    mode=0600
     owner={{ kairosdb_user }}
     group={{ kairosdb_group }}
 
 - name: Install SSL Certificate
   copy:
     content={{ kairosdb_ssl_cert }}
-    dest=/opt/kairosdb/conf/ssl.cert
-    mode=0640
+    dest=/etc/keystore/jetty.crt
+    mode=0600
+    owner={{ kairosdb_user }}
+    group={{ kairosdb_group }}
+
+- name: Make PKCS12 From Key/Cert
+  command: openssl pkcs12 -inkey /etc/keystore/jetty.key -in /etc/keystore/jetty.crt -export -out /etc/keystore/jetty.pkcs12
+  args:
+    creates=/etc/keystore/jetty.pkcs12
+
+- name: Secure The PKCS12
+  file:
+    path=/etc/keystore/jetty.pkcs12
+    mode=0600
     owner={{ kairosdb_user }}
     group={{ kairosdb_group }}
 
