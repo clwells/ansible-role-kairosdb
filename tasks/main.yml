@@ -30,6 +30,14 @@
     owner={{ kairosdb_user }}
     group={{ kairosdb_group }}
 
+- name: Install KairosDB Logging Config
+  template:
+    src=logback.xml.j2
+    dest=/opt/kairosdb/conf/log/logback.xml
+    mode=0640
+    owner={{ kairosdb_user }}
+    group={{ kairosdb_group }}
+
 - name: Install SSL Key
   copy:
     content=""
