@@ -63,7 +63,7 @@
     group={{ kairosdb_group }}
 
 - name: Make PKCS12
-  command: openssl pkcs12 -inkey jetty.key -in jetty.crt -export -out jetty.pkcs12 -passout pass:
+  command: "openssl pkcs12 -inkey jetty.key -in jetty.crt -export -out jetty.pkcs12 -passout pass:"
   args:
     chdir: /etc/keystore
     creates: /etc/keystore/jetty.pkcs12
