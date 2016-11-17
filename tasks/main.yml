@@ -62,10 +62,6 @@
     owner={{ kairosdb_user }}
     group={{ kairosdb_group }}
 
-- name: Make PKCS12
-  command: openssl pkcs12 -inkey /etc/keystore/jetty.key -in /etc/keystore/jetty.crt -export -out /etc/keystore/jetty.pkcs12
-  args:
-    creates=/etc/keystore/jetty.pkcs12
 
 - name: Secure The PKCS12
   file:
