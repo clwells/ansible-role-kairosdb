@@ -12,4 +12,5 @@ kairosdb_firewall_open_external_ports:
   - 443
 kairosdb_firewall_open_internal_ports:
   - 9160
-
+kairosdb_ssl_key:
+kairosdb_ssl_cert:

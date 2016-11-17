@@ -40,13 +40,19 @@
 
 - name: Install SSL Key
   copy:
-    content=""
+    content={{ kairosdb_ssl_key }}
     dest=/opt/kairosdb/conf/ssl.key
+    mode=0640
+    owner={{ kairosdb_user }}
+    group={{ kairosdb_group }}
 
 - name: Install SSL Certificate
   copy:
-    content=""
+    content={{ kairosdb_ssl_cert }}
     dest=/opt/kairosdb/conf/ssl.cert
+    mode=0640
+    owner={{ kairosdb_user }}
+    group={{ kairosdb_group }}
 
 - name: Restart KairosDB
   command: /bin/true
