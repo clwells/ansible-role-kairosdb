@@ -25,10 +25,20 @@
 - name: Install KairosDB Config
   template:
     src=kairosdb.properties.j2
-    dest=/opt/kairosdb/conf
+    dest=/opt/kairosdb/conf/kairosdb.properties
     mode=0640
     owner={{ kairosdb_user }}
     group={{ kairosdb_group }}
+
+- name: Install SSL Key
+  copy:
+    content=""
+    dest=/opt/kairosdb/conf/ssl.key
+
+- name: Install SSL Certificate
+  copy:
+    content=""
+    dest=/opt/kairosdb/conf/ssl.cert
 
 - name: Restart KairosDB
   command: /bin/true
