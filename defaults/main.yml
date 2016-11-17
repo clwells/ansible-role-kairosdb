@@ -14,3 +14,4 @@ kairosdb_firewall_open_internal_ports:
   - 9160
 kairosdb_ssl_key:
 kairosdb_ssl_cert:
+kairosdb_pkcs12_password: {{ lookup('password', '/tmp/KAIROSDB_PKCS12_PASSWORD length=32') }}

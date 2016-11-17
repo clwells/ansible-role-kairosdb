@@ -63,10 +63,14 @@
     group={{ kairosdb_group }}
 
 - name: Make PKCS12
-  command: "openssl pkcs12 -inkey jetty.key -in jetty.crt -export -out jetty.pkcs12 -passout pass:"
+  command: "openssl pkcs12 -inkey jetty.key -in jetty.crt -export -out jetty.pkcs12 -passout pass:{{ kairosdb_pkcs12_password }}"
   args:
     chdir: /etc/keystore
-    creates: /etc/keystore/jetty.pkcs12
+
+- name: Remove PKCS12 Password File
+  file:
+    path=/tmp/KAIROSDB_PKCS12_PASSWORD
+    state=absent
 
 - name: Secure The PKCS12
   file:
